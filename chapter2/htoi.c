@@ -60,7 +60,8 @@ int htoi(char input[]) {
       sum += convertHex(digit, count);
     }
     else {
-      return 0;
+      sum = 0;
+      break;
     }
 
     count++;
