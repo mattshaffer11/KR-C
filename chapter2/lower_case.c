@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int lower(int c) {
   int result;
-  if (c >= 'A' || c <= 'Z') {
-    result = c + 'a' - 'A';
+  if (!isdigit(c)) {
+    result = tolower(c);
   }
   else {
     result = c;
