@@ -27,6 +27,6 @@ void strcat(char s1[], char s2[]) {
 int main() {
   char string1[100] = "cat";
   strcat(string1, "dog");
-  
+
   printf("\"cat\" + \"dog\" = %s\n", string1);
 }
