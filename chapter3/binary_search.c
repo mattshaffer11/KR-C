@@ -3,7 +3,6 @@
 int search(int target, int data[], int size) {
   int low = 0;
   int high = size;
-  int previousMiddle = -1;
 
   int middle = (high + low) / 2;
 
@@ -22,8 +21,6 @@ int search(int target, int data[], int size) {
     else {
       break;
     }
-
-    previousMiddle = middle;
   }
 
   return -1;
@@ -32,5 +29,5 @@ int search(int target, int data[], int size) {
 int main() {
   int data[] = {2, 3, 3, 4, 4, 5, 8, 9};
 
-  printf("search(5, data, 8) = %d\n", search(5, data, 8));
+  printf("search(2, data, 8) = %d\n", search(2, data, 8));
 }
