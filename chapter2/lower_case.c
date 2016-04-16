@@ -2,15 +2,7 @@
 #include <ctype.h>
 
 int lower(int c) {
-  int result;
-  if (!isdigit(c)) {
-    result = tolower(c);
-  }
-  else {
-    result = c;
-  }
-
-  return result;
+  return !isdigit(c) ? tolower(c) : c;
 }
 
 int main() {
