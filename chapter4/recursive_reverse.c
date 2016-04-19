@@ -8,10 +8,7 @@ void swap(char str[], int i, int j) {
 }
 
 void recursive_reverse(char str[], int begin, int end) {
-  if (begin >= end) {
-    return;
-  }
-  else {
+  if (begin < end) {
     swap(str, begin, end);
     recursive_reverse(str, ++begin, --end);
   }
