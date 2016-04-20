@@ -2,10 +2,10 @@
 #include <string.h>
 
 void mystrcat(char *s, char *t) {
-  int position = strlen(s);
-  int count = 0;
+  char *sp = s + strlen(s);
+  char *tp = t;
 
-  for (; (s[position] = t[count]) != '\0'; position++, count++);
+  for (; (*sp = *tp) != '\0'; sp++, tp++);
 }
 
 int main() {
