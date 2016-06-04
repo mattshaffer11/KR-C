@@ -10,4 +10,5 @@ int main() {
   int *parr = subarray(arr, 1);
 
   printf("arr[0] = %d\n", parr[0]);
+  printf("arr[-1] = %d\n", parr[-1]);
 }
