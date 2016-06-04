@@ -7,8 +7,12 @@ struct node {
   struct node *right_child;
 };
 
+struct node *nalloc() {
+  return (struct node *) (malloc(sizeof(struct node)));
+}
+
 struct node *create_node(int val) {
-  struct node *n = (struct node *) (malloc(sizeof(struct node)));
+  struct node *n = nalloc();
   n->value = val;
   n->left_child = NULL;
   n->right_child = NULL;
