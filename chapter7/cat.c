@@ -15,9 +15,13 @@ int main(int argc, char *argv[]) {
     int i;
     FILE *fp;
     for (i = 1; i < argc; i++) {
-      fp = fopen(argv[i], "r");
-      copy_file(fp, stdout);
-      fclose(fp);
+      if ((fp = fopen(argv[i], "r")) != NULL) {
+        copy_file(fp, stdout);
+        fclose(fp);
+      }
+      else {
+        fprintf(stderr, "%s: %s: No such file or directory\n", argv[0], argv[i]);
+      }
     }
   }
 }
