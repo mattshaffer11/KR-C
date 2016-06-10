@@ -11,39 +11,37 @@
 
 #define MAX_STRING 200
 
+int strcontains(char *s, char target) {
+  char c;
+  int i, found = 0;
+  for (i = 0; (c = s[i]) != '\0'; i++) {
+    if (c == target) {
+      found = 1;
+      break;
+    }
+  }
+
+  return found;
+}
+
 void squeeze(char s1[], char s2[]) {
+  char temp_buffer[MAX_STRING];
 
-  int indexes_to_remove[MAX_STRING] = { 0 };
-
-  char c1, c2;
-  int i, j;
-  for (i = 0; (c1 = s2[i]) != '\0'; i++) {
-    for (j = 0; (c2 = s1[j]) != '\0'; j++) {
-      if (c1 == c2) {
-        indexes_to_remove[j] = 1;
-      }
+  char c;
+  int i, buffer_position = 0;
+  for (i = 0; (c = s1[i]) != '\0'; i++) {
+    if (!strcontains(s2, c)) {
+      temp_buffer[buffer_position++] = c;
     }
   }
 
-  int s1_length = strlen(s1);
-  int k;
-
-  int amount_to_shift = 0;
-  for (k = 0; k < s1_length; k++) {
-    int should_remove = indexes_to_remove[k];
-    if (should_remove) {
-      amount_to_shift++;
-      s1[k] = s1[k + amount_to_shift];
-    }
-    else {
-      s1[k] = s1[k + amount_to_shift];
-    }
-  }
+  temp_buffer[buffer_position] = '\0';
+  strcpy(s1, temp_buffer);
 }
 
 int main() {
-  char s[] = "Hallo";
-  char t[] = "Hello!";
+  char s[] = "testingac";
+  char t[] = "test!abc";
 
   squeeze(s, t);
   printf("%s\n", s);
