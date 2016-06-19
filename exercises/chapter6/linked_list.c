@@ -2,33 +2,33 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct node {
+typedef struct node {
   struct node *next;
   int data;
-};
+} Node;
 
-struct linked_list {
+typedef struct linked_list {
   struct node *head;
   int length;
-};
+} LinkedList;
 
-struct linked_list *create_linked_list() {
-  struct linked_list *ll = malloc(sizeof(struct linked_list));
+LinkedList *create_linked_list() {
+  LinkedList *ll = malloc(sizeof(LinkedList));
   ll->head = NULL;
   ll->length = 0;
   return ll;
 }
 
-struct node *create_node(int data) {
-  struct node *n = malloc(sizeof(struct node));
+Node *create_node(int data) {
+  Node *n = malloc(sizeof(Node));
   n->data = data,
   n->next = NULL;
 
   return n;
 }
 
-void add_node(struct linked_list *ll, int data) {
-  struct node *np = ll->head;
+void add_node(LinkedList *ll, int data) {
+  Node *np = ll->head;
 
   if (ll->length == 0) {
     ll->head = create_node(data);
@@ -44,8 +44,8 @@ void add_node(struct linked_list *ll, int data) {
   ll->length++;
 }
 
-void print_list(struct linked_list *ll) {
-  struct node *np = ll->head;
+void print_list(LinkedList *ll) {
+  Node *np = ll->head;
 
   while (np != NULL) {
     printf("%d\n", np->data);
@@ -54,7 +54,7 @@ void print_list(struct linked_list *ll) {
 }
 
 int main() {
-  struct linked_list *ll = create_linked_list();
+  LinkedList *ll = create_linked_list();
 
   add_node(ll, 5);
   add_node(ll, 8);
